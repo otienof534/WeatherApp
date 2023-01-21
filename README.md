@@ -1,2 +1,2 @@
-#weather App
+# weather App
 using the api from OpenWeatherMap
