@@ -5,7 +5,9 @@ import json
 x = Tk()
 x.title('Weather Focus')
 x.iconbitmap('C:\\Users\\USER\\Downloads\\clouds.ico')
-x.geometry('700x600')
+x.geometry('800x400+300+100')
+x.configure(bg='purple')
+x.resizable(0,0)
 
 entry_defination = Label(x,text= 'County/Town:').grid(row=0,column=1)
 
@@ -19,8 +21,8 @@ search = Entry(x,width=50,borderwidth=5)
 search.grid(row=0,column=4)
 search.get()
 
-spacing_label1 = Label(x,text=' ').grid(row=2)
-spacing_label2 = Label(x,text=' ').grid(row=3)
+spacing_label1 = Label(x,text=' ',bg='purple').grid(row=2)
+spacing_label2 = Label(x,text=' ',bg='purple').grid(row=3)
 
 
 def RESULTS():
