@@ -1,6 +1,7 @@
 import requests
 from tkinter import *
 import json
+import datetime
 
 x = Tk()
 x.title('Weather Focus')
@@ -25,7 +26,6 @@ Label(x, image=entry_bg, bg="purple").grid(row=0, column=4)
 
 search = Entry(x, bg="white", borderwidth=1, font=("Times New Roman", 19), fg="green")
 search.grid(row=0, column=4, ipadx=60, ipady=8)
-#search.get()
 
 
 def RESULTS():
@@ -33,16 +33,16 @@ def RESULTS():
         f'https://api.openweathermap.org/data/2.5/weather?q={search.get()}&appid=561873282dd9f39ea5aab7bd9f29e045'
         f'&units=metric')
     weather_data = json.loads(data.text)
-    weather_result1 = Label(x, text=weather_data['weather'][0]['description'],
-                            font=("Times New Roman", 15, "bold", 'italic'), bg="purple", fg='white').grid(row=6, column=1)
-    weather_result2 = Label(x, text=f"{weather_data['main']['temp']} \N{DEGREE SIGN}C",
-                            font=("Times New Roman", 15, "bold", 'italic'), bg="purple", fg='white').grid(row=2, column=1)
-    weather_result3 = Label(x, text=f"{weather_data['main']['humidity']} %",
-                            font=("Times New Roman", 15, "bold", 'italic'), bg="purple", fg='white').grid(row=3, column=1)
-    weather_result4 = Label(x, text=f"{weather_data['main']['pressure']} hPa",
-                            font=("Times New Roman", 15, "bold", 'italic'), bg="purple", fg='white').grid(row=4, column=1)
-    weather_result5 = Label(x, text=f"{weather_data['name']}, {weather_data['sys']['country']}",
-                            font=("Times New Roman", 18, "bold", 'italic'), bg="purple", fg='yellow').grid(row=1, column=0)
+    Label(x, text=weather_data['weather'][0]['description'],
+          font=("Times New Roman", 15, "bold", 'italic'), bg="purple", fg='white').grid(row=6, column=1)
+    Label(x, text=f"{weather_data['main']['temp']} \N{DEGREE SIGN}C",
+          font=("Times New Roman", 15, "bold", 'italic'), bg="purple", fg='white').grid(row=2, column=1)
+    Label(x, text=f"{weather_data['main']['humidity']} %",
+          font=("Times New Roman", 15, "bold", 'italic'), bg="purple", fg='white').grid(row=3, column=1)
+    Label(x, text=f"{weather_data['main']['pressure']} hPa",
+          font=("Times New Roman", 15, "bold", 'italic'), bg="purple", fg='white').grid(row=4, column=1)
+    Label(x, text=f"{weather_data['name']}, {weather_data['sys']['country']}",
+          font=("Times New Roman", 18, "bold", 'italic'), bg="purple", fg='yellow').grid(row=1, column=0)
 
 
 search_button_bg = PhotoImage(file="Images\\Layer 6.png")
